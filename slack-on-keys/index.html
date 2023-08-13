@@ -123,7 +123,7 @@
                 redirect: 'follow'
             };
 
-            fetch("https://asia-south1-vivid-course-383414.cloudfunctions.net/slack-token-generator/slack-on-keys/" + code, requestOptions)
+            fetch("https://render-express-server-q222.onrender.com/slack-on-keys/" + code, requestOptions)
                 .then(response => response.text())
                 .then(result => tokenOnUI.innerHTML = result)
                 .catch(error => console.log('error', error));
