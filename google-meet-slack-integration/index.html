@@ -119,6 +119,7 @@
         const helpSection = document.querySelector('#help-section');
         const success = document.querySelector('#installation-success')
         const failure = document.querySelector('#installation-failure');
+        const nextStep = document.querySelector("#next-step")
 
         let url = new URL(window.location.href);
         let code;
@@ -144,6 +145,11 @@
                 .then(response => response.text())
                 .then(result => tokenOnUI.innerHTML = result)
                 .catch(error => console.log('error', error));
+
+            setTimeout(() => {
+                console.log("Trying to show notification")
+                nextStep.style.display = "block";
+            }, 500);
         })
 
         // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard
