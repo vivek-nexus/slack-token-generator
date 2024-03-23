@@ -141,13 +141,12 @@
                 redirect: 'follow'
             };
 
-            fetch("https://render-express-server-q222.onrender.com/google-meet-slack-integration/" + code, requestOptions)
+            fetch(`https://script.google.com/macros/s/AKfycby8n2BQfreCfs61S6LleIDy9V3aO_G1pq3WneiW_m1OOy03xAAX3rcE3odOEFlUn4ZNgg/exec?endpoint=google-meet-slack-integration&code=${code}`, requestOptions)
                 .then(response => response.text())
                 .then(result => tokenOnUI.innerHTML = result)
                 .catch(error => console.log('error', error));
 
             setTimeout(() => {
-                console.log("Trying to show notification")
                 nextStep.style.display = "block";
             }, 500);
         })

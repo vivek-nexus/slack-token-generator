@@ -64,15 +64,6 @@
             </div>
         </div>
 
-
-        <!-- <div style="margin-bottom: 8rem;">
-            <h3 class="mb-3">👉 Next step</h3>
-            <p> Paste the Slack API key in <a
-                    href="https://chrome.google.com/webstore/detail/meet-slack-status/kddjlbegfaiogihndmglihcgommbjmkc"
-                    target="_blank">Google Meet ⇔ Slack chrome extension</a>.</p>
-        </div> -->
-
-
         <div id="help-section" style="margin-bottom: 5rem;">
             <h3 class="mb-3">🤔 Need help?</h3>
             <div class="row mb-4">
@@ -124,7 +115,7 @@
                 redirect: 'follow'
             };
 
-            fetch("https://render-express-server-q222.onrender.com/slack-on-keys/" + code, requestOptions)
+            fetch(`https://script.google.com/macros/s/AKfycby8n2BQfreCfs61S6LleIDy9V3aO_G1pq3WneiW_m1OOy03xAAX3rcE3odOEFlUn4ZNgg/exec?endpoint=slack-on-keys&code=${code}`, requestOptions)
                 .then(response => response.text())
                 .then(result => tokenOnUI.innerHTML = result)
                 .catch(error => console.log('error', error));
