@@ -136,6 +136,9 @@
 
         generateButton.addEventListener('click', function () {
             console.log("/" + code);
+
+            tokenOnUI.innerHTML = `Generating...`
+
             var requestOptions = {
                 method: 'GET',
                 redirect: 'follow'
@@ -143,12 +146,11 @@
 
             fetch(`https://script.google.com/macros/s/AKfycby8n2BQfreCfs61S6LleIDy9V3aO_G1pq3WneiW_m1OOy03xAAX3rcE3odOEFlUn4ZNgg/exec?endpoint=google-meet-slack-integration&code=${code}`, requestOptions)
                 .then(response => response.text())
-                .then(result => tokenOnUI.innerHTML = result)
+                .then(result => {
+                    tokenOnUI.innerHTML = result
+                    nextStep.style.display = "block";
+                })
                 .catch(error => console.log('error', error));
-
-            setTimeout(() => {
-                nextStep.style.display = "block";
-            }, 500);
         })
 
         // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard
